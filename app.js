@@ -10,9 +10,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://adaopte-front.vercel.app'],
     credentials: true
-
 }));
 
 const animalRouter = require('./routes/animal'); // importe BDD animal
