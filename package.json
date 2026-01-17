@@ -1,26 +1,22 @@
 {
   "name": "adaopte_back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "node app.js",
-    "generate": "npx prisma generate",
-    "migrate": "npx prisma migrate dev",
-    "start": "npm run generate && node app.js",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "vercel-build": "prisma generate && prisma db push",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hanane2A/Adaopte_back.git"
+    "url": "git+https://github.com/Camille-lt/Adaopte_back.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hanane2A/Adaopte_back/issues"
-  },
-  "homepage": "https://github.com/Hanane2A/Adaopte_back#readme",
-  "description": "",
   "dependencies": {
     "@prisma/client": "^6.11.1",
     "bcryptjs": "^3.0.2",
