@@ -8,18 +8,21 @@ const prisma = new PrismaClient();
 
 
 
-router.get('/', async(req, res)=>{
+// ✅ Version simplifiée qui lit directement la colonne city_name
+router.get('/', async (req, res) => {
+  try {
+    // On récupère simplement tous les animaux. 
+    // Prisma inclura automatiquement 'city_name' s'il est dans ton schéma.
+    const animals = await prisma.animal.findMany();
 
-        try{
-            const animal = await prisma.animal.findMany();
-            res.json(animal);
-        } catch(error){
-
-            console.error("Erreur bdd animal :", error);
-            res.status(500).json({message: "Erreur serveur BDD animaux."});
-            
-        }
+    // On renvoie les données directement sans re-formatage complexe
+    res.json(animals);
+  } catch (error) {
+    console.error("Erreur bdd animal :", error);
+    res.status(500).json({ message: "Erreur serveur BDD animaux." });
+  }
 });
+
 
 router.post('/', async(req, res)=>{
 

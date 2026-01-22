@@ -40,6 +40,7 @@ model animal {
   sexe              String?
   animal_shelter_id Int?
   img_url           String?
+  city_name         String?       
   adoption          adoption[]
   animal_shelter    animal_shelter? @relation(fields: [animal_shelter_id], references: [animal_shelter_id], onUpdate: NoAction, map: "fk_animal_shelter")
 }
